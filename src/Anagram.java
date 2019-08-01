@@ -32,6 +32,11 @@
 	        
 	        return new String(chars);
 	    }
+		static String sort(String str) {
+		char[] temparray = str.toCharArray();
+		Arrays.sort(temparray);
+		return new String(temparray);
+	}
 
 	    public static void main(String ar[]) {
 	    	    
