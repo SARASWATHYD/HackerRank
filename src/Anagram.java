@@ -1,5 +1,6 @@
 
-	import java.util.Scanner;
+	import java.util.Arrays;
+import java.util.Scanner;
 
 	public class Anagram {
 
@@ -11,27 +12,27 @@
 	           return false;
 
 	    }
-
-	    static String sort(String str) {
-	        char[] chars = str.toCharArray();
-	        int j = 0;
-	        char temp = 0;
-	        for (int i = 0; i < chars.length; i++) {
-	            for (j = 0; j < chars.length; j++) {
-	                if (chars[j] > chars[i]) {
-	                    temp = chars[i];
-	                    chars[i] = chars[j];
-	                    chars[j] = temp;
-	                }
-
-	            }
-
-	        }
-	        for(int k=0;k<chars.length;k++)
-	           chars[k] = chars[k];
-	        
-	        return new String(chars);
-	    }
+//
+//	    static String sort(String str) {
+//	        char[] chars = str.toCharArray();
+//	        int j = 0;
+//	        char temp = 0;
+//	        for (int i = 0; i < chars.length; i++) {
+//	            for (j = 0; j < chars.length; j++) {
+//	                if (chars[j] > chars[i]) {
+//	                    temp = chars[i];
+//	                    chars[i] = chars[j];
+//	                    chars[j] = temp;
+//	                }
+//
+//	            }
+//
+//	        }
+//	        for(int k=0;k<chars.length;k++)
+//	           chars[k] = chars[k];
+//	        
+//	        return new String(chars);
+//	    }
 		static String sort(String str) {
 		char[] temparray = str.toCharArray();
 		Arrays.sort(temparray);
