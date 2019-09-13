@@ -24,10 +24,7 @@ public class ClimbingLeaderBoard {
 	}
 	private void climbingLeaderBoard(int[] scores , int[] aliceScores){
 		Set<Integer> set = new TreeSet<Integer>(Collections.reverseOrder());
-		List<Integer> ranklist = new ArrayList();
 		int rank;
-		List<Integer> marklist = new ArrayList();
-
 		for(int i = 0 ; i < scores.length ; i ++) 
 			set.add(scores[i]);
 		
