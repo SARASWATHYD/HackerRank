@@ -16,7 +16,9 @@ public class CircularRotation {
 	public static void circularRotation(int[] elements) {
 		
 		for(int i = 0 ; i < elements.length ; i ++) {
-			elements[i]
+			elements[0] = elements[elements.length-1];
+			elements[i] = elements[i+1];
+			
 		}
 	}
 
