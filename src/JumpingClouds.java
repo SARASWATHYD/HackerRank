@@ -3,33 +3,23 @@ import java.util.Scanner;
 public class JumpingClouds {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
 		int n = in.nextInt();
+		int k = in.nextInt();
 		int c[] = new int[n];
-		for(int i=0; i < n; i++)
-			c[i] = in.nextInt();
-		
-		int i=0;
-		int count =0;
-		while(i<n)
-		{
-			if((i+1)==n-1)
-			{
-				i=i+1;count++;
-				continue;
-			}
-			if((i+2)<n)
-			{ 
-				count++;
-				if(c[i+2]!=1)
-				i =i+2;
-				else
-				i =i+1;
-			}
-			else break;
+		for (int c_i = 0; c_i < n; c_i++) {
+			c[c_i] = in.nextInt();
 		}
-		System.out.println(count);
+
+		int curr = 0;
+		int e = 100;
+		curr = (curr + k) % n;
+		e -= 1 + c[curr] * 2;
+		while (curr != 0) {
+			curr = (curr + k) % n;
+			e -= 1 + c[curr] * 2;
+		}
+		System.out.println(e);
 	}
 
 }
