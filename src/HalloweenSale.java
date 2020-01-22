@@ -20,7 +20,7 @@ public class HalloweenSale {
 	    }
 	    else
 	    {
-	        return Math.floorDiv((-d-2*p)+Math.sqrt((-2*p-d)*(-2*p-d)-(8*d*s)), ((-2*d)));
+	        return Math.floorDiv((int) ((-d-2*p)+Math.sqrt((-2*p-d)*(-2*p-d)-(8*d*s))), ((-2*d)));
 	    }
 	}
 }

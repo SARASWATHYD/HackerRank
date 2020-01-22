@@ -7,9 +7,8 @@ public class JumpingClouds {
 		int n = in.nextInt();
 		int k = in.nextInt();
 		int c[] = new int[n];
-		for (int c_i = 0; c_i < n; c_i++) {
+		for (int c_i = 0; c_i < n; c_i++)
 			c[c_i] = in.nextInt();
-		}
 
 		int curr = 0;
 		int e = 100;
