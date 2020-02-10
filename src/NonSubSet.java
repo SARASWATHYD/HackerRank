@@ -3,14 +3,30 @@ import java.util.Scanner;
 public class NonSubSet {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int k = sc.nextInt();
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int k = in.nextInt();
 		int a[] = new int[n];
-		for (int i = 0; i < n; i++)
-			a[i] = sc.nextInt();
+		int cnts[] = new int[k];
+		for (int a_i = 0; a_i < n; a_i++) {
+			a[a_i] = in.nextInt();
+			cnts[a[a_i] % k]++;
+		}
+		int cnt = 0;
+		for (int i = 1; i <= k / 2; i++) {
+			if (2 * i != k) {
+				cnt += Math.max(cnts[i], cnts[k - i]);
+			}
+		}
+		if (k % 2 == 0) {
+			if (cnts[k / 2] > 0) {
+				cnt++;
+			}
+		}
+		if (cnts[0] > 0) {
+			cnt++;
+		}
+		System.out.println(cnt);
 
 	}
-
 }
