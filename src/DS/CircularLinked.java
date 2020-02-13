@@ -100,7 +100,7 @@ public class CircularLinked {
 	}
 	public static void main(String[] args) {
 
-		DoublyLinkedList dList = new DoublyLinkedList();
+		CircularLinked dList = new CircularLinked();
 		// Add nodes to the list
 		dList.addNode(1);
 		dList.addNode(2);
@@ -109,7 +109,9 @@ public class CircularLinked {
 		dList.addNode(5);
 
 		// Displays the nodes present in the list
-		dList.display();
+		System.out.println("5 ::" + dList.containsNode(5));
+		dList.deleteNode(5);
+		System.out.println("5 ::" + dList.containsNode(5));
 	}
 
 }
