@@ -1,5 +1,10 @@
 package DS;
 
+/**
+ * 
+ * @author saraswathy
+ *
+ */
 public class CircularLinked {
 
 	// Represent a node of the doubly linked list
@@ -8,6 +13,7 @@ public class CircularLinked {
 		int data;
 		Node previous;
 		Node next;
+
 
 		public Node(int data) {
 			this.data = data;
@@ -18,30 +24,19 @@ public class CircularLinked {
 	Node head, tail = null;
 
 	// addNode() will add a node to the list
-	public void addNode(int data) {
-		// Create a new node
-		Node newNode = new Node(data);
+	public void addNode(int value) {
 
-		// If list is empty
+		Node newNode = new Node(value);
+
 		if (head == null) {
-			// Both head and tail will point to newNode
-			head = tail = newNode;
-			// head's previous will point to null
-			head.previous = null;
-			// tail's next will point to null, as it is the last node of the list
-			tail.next = null;
+			head = newNode;
 		} else {
-			// newNode will be added after tail such that tail's next will point to newNode
 			tail.next = newNode;
-			// newNode's previous will point to tail
-			newNode.previous = tail;
-			// newNode will become new tail
-			tail = newNode;
-			// As it is last node, tail's next will point to null
-			tail.next = null;
 		}
-	}
 
+		tail = newNode;
+		tail.next = head;
+	}
 	// display() will print out the nodes of the list
 	public void display() {
 		// Node current will point to head
@@ -59,6 +54,50 @@ public class CircularLinked {
 		}
 	}
 
+	/*
+	 * finding elements Search
+	 */
+	public boolean containsNode(int searchValue) {
+		Node currentNode = head;
+
+		if (head == null) {
+			return false;
+		} else {
+			do {
+				if (currentNode.data == searchValue) {
+					return true;
+				}
+				currentNode = currentNode.next;
+			} while (currentNode != head);
+			return false;
+		}
+	}
+
+	/**
+	 * Deleting entries in circular linked list
+	 * 
+	 * @param args
+	 */
+
+	public void deleteNode(int valueToDelete) {
+		Node currentNode = head;
+
+		if (head != null) {
+			if (currentNode.data == valueToDelete) {
+				head = head.next;
+				tail.next = head;
+			} else {
+				do {
+					Node nextNode = currentNode.next;
+					if (nextNode.data == valueToDelete) {
+						currentNode.next = nextNode.next;
+						break;
+					}
+					currentNode = currentNode.next;
+				} while (currentNode != head);
+			}
+		}
+	}
 	public static void main(String[] args) {
 
 		DoublyLinkedList dList = new DoublyLinkedList();
