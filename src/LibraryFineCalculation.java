@@ -10,17 +10,17 @@ public class LibraryFineCalculation {
 		int d2 = sc.nextInt();
 		int m2 = sc.nextInt();
 		int y2 = sc.nextInt();
-		if (y1 != y2)
+		if (y1 > y2)
 			System.out.println(10000);
-		if (y1 == y2) {
-			if (m1 == m2) {
-				if (d1 == d2)
+		if (y1 <= y2) {
+			if (m1 <= m2) {
+				if (d1 <= d2)
 					System.out.println(0);
 				else
 					System.out.println((d1 - d2) * 15);
-			} else {
+			} else
 				System.out.println((m1 - m2) * 500);
-			}
+
 		}
 	}
 
