@@ -18,7 +18,7 @@ public class Encryption {
 		columns = (int) Math.ceil(Math.sqrt(input.length()));
         
         if (columns*rows < input.length()){
-            rows++;
+			rows++;
         }
         
        
