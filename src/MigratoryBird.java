@@ -1,13 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class MigratoryBird {
 
@@ -24,28 +20,25 @@ public class MigratoryBird {
 	}
 	
 	static public int migratorybirds(int ar[]) {
-		Map<Integer, Integer> map = new HashMap();
-		List<Integer> repeatlist = new ArrayList();
-		
-		Set<Integer> hashSet = new HashSet();
-		List<Integer> numberlist = new ArrayList();
-				
-				
-		for(int i = 0 ; i < ar.length ; i ++) {
-			for(int j = 0 ; j < ar.length ; j++)
-			{
-			numberlist.add(ar[i]);
-			hashSet.add(ar[i]);
-			}
-			
+
+		Map<Integer, Integer> elements = new HashMap<>();
+		List<Integer> count = new ArrayList();
+		List<Integer> keys = new ArrayList<>();
+		for (int i : ar) {
+			if (elements.containsKey(i))
+				elements.put(i, elements.get(i) + 1);
+			else
+				elements.put(i, 1);
 		}
-		//check whether number list has repeated number
-		for(int i : numberlist) {
-			if(hashSet.contains(i)&&!repeatlist.contains(i)) 
-				repeatlist.add(i);
-			
-			}		
-		return  Collections.min(repeatlist);
+		for (Map.Entry<Integer, Integer> entry : elements.entrySet()) {
+			count.add(entry.getValue());
+		}
+
+		for (Map.Entry<Integer, Integer> entry : elements.entrySet()) {
+			if (entry.getValue() == Collections.max(count))
+				keys.add(entry.getKey());
+		}
+		return Collections.min(keys);
 	}
 	
 }
