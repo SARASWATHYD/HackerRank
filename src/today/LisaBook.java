@@ -1,36 +1,30 @@
 package today;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class LisaBook {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String ar[]) {
 		Scanner sc = new Scanner(System.in);
-		int size = sc.nextInt();
-		int pageRestriction = sc.nextInt();
-		int pages = 0;
-		int special = 0;
-		if (pageRestriction > 0)
-			special++;
-
-		int chapter[] = new int[size];
-		for (int i = 0; i < size; i++)
-			chapter[i] = sc.nextInt();
-		List<List> list = new ArrayList<>();
-
-		for (int i = 0; i < size; i++) {
-			List pageList = new ArrayList<>(3);
-			for (int j = 0; j < 3; j++) {
-
+		int n = sc.nextInt();
+		int k = sc.nextInt();
+		int numProblems, specialProblems = 0, pageNumber = 0;
+		for (int i = 0; i < n; i++) {
+			numProblems = sc.nextInt();
+			pageNumber++; // increase for new chapter
+			int problem = 1;
+			while (numProblems > 0) {
+				numProblems--;
+				if (problem == pageNumber) {
+					specialProblems++;
+				}
+				if (problem % k == 0 && numProblems != 0) {
+					pageNumber++; // increase for full page
+				}
+				problem++;
 			}
-			pages = chapter[i] / pageRestriction;
-			pages = pages + chapter[i] % pageRestriction;
-
 		}
+		System.out.println(specialProblems);
 
 	}
-
 }
