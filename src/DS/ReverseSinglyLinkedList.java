@@ -21,7 +21,6 @@ public class ReverseSinglyLinkedList {
 		while (current != null) {
 			next = current.next;
 			current.next = prev;
-			// swap
 			prev = current;
 			current = next;
 		}
