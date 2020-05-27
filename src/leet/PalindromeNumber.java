@@ -13,7 +13,8 @@ public class PalindromeNumber {
 		char[] s_char = str.toCharArray();
 		boolean isPalindrome = true;
 		for (int x = 0, y = s_char.length - 1; x < s_char.length; x++, y--)
-			isPalindrome = s_char[x] == s_char[y] ? true : false;
+			isPalindrome = isPalindrome && s_char[x] == s_char[y] ? true : false;
+
 
 		System.out.println(isPalindrome);
 	}
