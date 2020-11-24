@@ -48,7 +48,7 @@ public class MarkAndToys {
 		int budget = amount;
 		int count = 0;
 		for (Integer toyPrice : price) {
-			if (toyPrice <= amount) {
+			if (toyPrice <= budget) {
 				count++;
 				budget = budget - toyPrice;
 			}
