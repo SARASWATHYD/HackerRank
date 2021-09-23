@@ -1,5 +1,6 @@
 package leet;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -30,7 +31,7 @@ public class TwoSum {
 			array[i] = sc.nextInt();
 		}
 		int target = sc.nextInt();
-		int ind[] = twoSum(array, target);
+		int ind[] = new TwoSum().twoSum1(array, target);
 		for (int i = 0; i < ind.length; i++) {
 			System.out.println(ind[i]);
 		}
@@ -51,5 +52,22 @@ public class TwoSum {
 		}
 		return index;
 	}
+
+	public int[] twoSum1(int[] nums, int target) {
+        Arrays.sort(nums);
+		for (int i = 0; i < nums.length; i++) {
+			System.out.println(nums[i]);
+		}
+		int left = 0, right = nums.length - 1;
+		System.out.println("left::" + left + "right::" + right + "nums.size()" + nums.length);
+		while (left <= right) {
+          if(nums[left]+nums[right]==target)
+            return new int[]{left,right};
+           else if (nums[left] + nums[right] < target) 
+                left++;
+            else right++;
+    }
+ return new int[] {};
+}
 
 }
