@@ -66,7 +66,7 @@ public class MyHashMap<K, V> {
 
 	// the process of rehash
 	private void rehash(Entry<K, V>[] newTable) {
-		List<Entry<K, V>> list = new ArrayList<Entry<K, V>>();
+		ArrayList<Entry<K, V>> list = new ArrayList<Entry<K, V>>();
 		// traverse the array
 		for (int i = 0; i < table.length; i++) {
 			// continue if the given slot has no data
