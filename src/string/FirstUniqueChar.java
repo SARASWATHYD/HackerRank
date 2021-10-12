@@ -1,9 +1,12 @@
 package string;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class FirstUniqueChar {
 
@@ -31,4 +34,13 @@ public class FirstUniqueChar {
 		return -1;
 	}
 
+	public int firstUniqChar2(String s) {
+		char[] arr = s.toCharArray();
+		List list = Arrays.asList(arr);
+		Optional<Character> chars = list.stream().distinct().collect(Collectors.toList()).findFirst();
+		if (chars.isPresent())
+			return Chars.indexOf(chars);
+		else
+			return -1;
+	}
 }
