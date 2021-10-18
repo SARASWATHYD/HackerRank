@@ -15,17 +15,38 @@ public class ParenthesisValidation {
 
 	public static boolean validaParenthesis(String str) {
 		Stack<Character> stack = new Stack();
-		int t = 010;
-		int te = 07;
+		int t = 070;
+		int te = 7;
 
-		System.out.println(t);
-		System.out.println(te);
+		System.out.println(t); // 10 // 8
+
+		System.out.println(te & 1);// 7
 
 		for (int i = 0; i < str.length(); i++) {
-			if (str.charAt(i) == '(' || str.charAt(i) == '{' || str.charAt(i) == '[') {
+			char x = str.charAt(i);
+			if (x == '(' || x == '{' || x == '[') {
 				stack.push(str.charAt(i));
-			} else if (str.charAt(i) == '}' || str.charAt(i) == ')' || str.charAt(i) == ']') {
-				stack.pop();
+				continue;
+			}
+			if (stack.isEmpty()) // nothing got pushed into stack.
+				return false;
+			char peek;
+			switch (x) {
+			case '}':
+				peek = stack.pop();
+				if (peek == '(' || peek == '[')
+					return false;
+
+			case ']':
+				peek = stack.pop();
+				if (peek == '{' || peek == '(')
+					return false;
+
+			case ')':
+				peek = stack.pop();
+				if (peek == '{' || peek == '[')
+					return false;
+
 			}
 
 		}
