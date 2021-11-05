@@ -3,7 +3,6 @@ package math;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.sun.tools.javac.util.List;
 
 public class CountPrime {
 
