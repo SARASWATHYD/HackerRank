@@ -48,7 +48,6 @@ public class BuySellStock {
 	public int maxProfit(int[] prices) {
 		
 		int minPrice = prices[0];
-		int maxPrice = prices[0];
 		int profit =0;
 		for(int i =0; i<prices.length;i++) {
 			
